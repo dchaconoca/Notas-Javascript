@@ -80,7 +80,7 @@ class Persona {
 }
 ```
 
-#### Como lista de constantes
+#### Lista de constantes
 ```	
 let VAN = Symbol('van');
 let TRUCK = Symbol('truck');
@@ -111,7 +111,7 @@ class Transporte {
 }
 ```
 
-#### Uso como clave con el mismo nombre de una función
+#### Clave con el mismo nombre de una función
 ```
 const hasOwnProperty = Symbol("hasOwnProperty");
 
