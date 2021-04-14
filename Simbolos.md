@@ -25,8 +25,8 @@
 | ------------- | ------------- | ------------- |
 | Symbol.length  | Es 0 para todos los símbolos  |   |
 | **Método**  |  |   |
-| Symbol.for(key)  | Devuelve el símbolo creado con la clave dada. Si no existe, un nuevo símbolo se crea |   |
-| Symbol.keyFor(sym)  | Devuelve la clave del símbolo dado |   |
+| Symbol.for(key)  | Devuelve el símbolo creado con la clave dada. Si no existe, un nuevo símbolo se crea | let sym = Symbol.for("nombre");  |
+| Symbol.keyFor(sym)  | Devuelve la clave del símbolo dado | console.log(Symbol.keyFor(sym)); // nombre  |
 
 ### Símbolos más conocidos
 
@@ -46,6 +46,15 @@
 ### Ejemplos 
 
 #### Declaración
+```
+// Se ejecuta la función Symbol con una descripción que sirve de referencia
+let simbolo = Symbol("descripcion");
+
+// Cada ejecución de la función devuelve un valor distinto
+let x = Symbol("coordenada");
+let y = Symbol("coordenada");
+console.log(x === y); // false
+```
 
 #### Para definir propiedades privadas en una clase
 ```
@@ -67,6 +76,37 @@ class Persona {
     return {
       detalles: "Más detalles",
     };
+  }
+}
+```
+
+#### Como lista de constantes
+```	
+let VAN = Symbol('van');
+let TRUCK = Symbol('truck');
+let FERRY = Symbol('ferry');
+ 
+class Transporte {
+  constructor(tipo) {
+    switch(tipo) {
+      case VAN:
+        this.capacidad = 300; //Furgoneta 300 kilos max
+        this.nombre = "Van";
+        break;
+      case TRUCK:
+        this.capacidad = 1200; //Camión 1200 kilos max
+        this.nombre = "Truck";
+        break;
+      case FERRY:
+        this.capacidad = 5000; //Furgoneta 5000 kilos max
+        this.nombre = "Ferry";
+        break;
+      default:
+        throw new TypeError('Tipo de transporte incorrecto');
+    }
+  }
+  toString() {
+    return `Transport type ${this.nombre} with capacity ${this.capacidad}`;
   }
 }
 ```
