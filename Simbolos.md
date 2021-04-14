@@ -122,9 +122,9 @@ let map = {
     [hasOwnProperty]: "Símbolo"
 }
 
-console.log(map[hasOwnProperty]);
-console.log(typeof map[hasOwnProperty]);
-console.log(map.hasOwnProperty("prop1"));
+console.log(map[hasOwnProperty]); // "Símbolo"
+console.log(typeof map[hasOwnProperty]); // String
+console.log(map.hasOwnProperty("prop1")); // Lamado de la función hasOwnProperty, devuelve true
 ```
 
 #### Symbol.iterator
